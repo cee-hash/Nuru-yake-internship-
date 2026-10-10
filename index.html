@@ -1,108 +1,90 @@
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nuru Yake Internship</title>
-<style>*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui}body{background:#060a14;color:#fff}header{background:linear-gradient(135deg,#f59e0b,#ef4444);padding:22px;text-align:center}.card{background:#111a2e;border:1px solid #223055;border-radius:18px;padding:14px;margin:12px}.tabs{display:flex;gap:8px;overflow:auto;padding:0 12px}.tab{background:#1a2544;padding:10px 16px;border-radius:20px;cursor:pointer;white-space:nowrap;border:1px solid #2a3a6a}.tab.active{background:#f59e0b;color:#000;font-weight:900}.btn{width:100%;background:#f59e0b;color:#000;padding:12px;border:none;border-radius:12px;font-weight:900;margin-top:8px}input,textarea,select{width:100%;background:#0a1228;border:1px solid #2a3a6a;color:#fff;padding:12px;border-radius:10px;margin:6px 0}.hidden{display:none}.videoWrap{position:relative;padding-bottom:56%;background:#000;border-radius:12px;overflow:hidden;margin:8px 0}.videoWrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}.v{width:100%;border-radius:12px;margin:8px 0}</style></head><body>
-<header><h1>✨ NURU YAKE INTERNSHIP</h1><p>1 Year Program • Weekly Update</p><small id="st">✅ Ready - Buttons Fixed</small></header>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Nuru Yake Internship - FINAL FIX</title>
+<style>*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui}body{background:#060a14;color:#fff}header{background:linear-gradient(135deg,#f59e0b,#ef4444);padding:22px;text-align:center}.card{background:#111a2e;border:1px solid #223055;border-radius:16px;padding:14px;margin:12px}.tabs{display:flex;gap:8px;overflow-x:auto;padding:8px 12px}.tab{flex:0 0 auto;background:#1e2a4a;color:#fff;border:2px solid #2a3a6a;padding:12px 18px;border-radius:25px;font-weight:700;cursor:pointer}.tab.active{background:#f59e0b;color:#000;border-color:#f59e0b}.hidden{display:none}.btn{width:100%;background:#f59e0b;color:#000;padding:13px;border:none;border-radius:12px;font-weight:900;margin-top:8px;cursor:pointer}input,textarea,select{width:100%;background:#0a1228;border:1px solid #2a3a6a;color:#fff;padding:12px;border-radius:10px;margin:6px 0}video{width:100%;border-radius:12px;margin:8px 0}</style></head><body>
+<header><h1>✨ NURU YAKE INTERNSHIP</h1><p>1 Year Program - Weekly Update</p><small id="st">✅ Final Fix - Buttons 100% Working</small></header>
 
-<div class="card"><h3 style="color:#fbbf24">🌟 Welcome to Nuru Yake Internship</h3><p id="wq" style="margin:8px 0">Karibu! 1-year journey of purpose, skills & faith. New content every week!</p><small><span id="wb">Week 1</span> • <span id="pb">1/52</span></small></div>
+<div class="card"><h3 style="color:#fbbf24">🌟 Welcome</h3><p id="wq">Karibu! 1-year journey of purpose, skills & faith.</p><p style="margin-top:8px"><span id="wb">Week 1</span> • <span id="pb">1/52</span></p></div>
 
 <div class="tabs">
-<div class="tab active" id="t-home" onclick="go('home')">Home</div>
-<div class="tab" id="t-weeks" onclick="go('weeks')">Weeks (52)</div>
-<div class="tab" id="t-tt" onclick="go('tt')">Timetable</div>
-<div class="tab" id="t-verses" onclick="go('verses')">Verses</div>
-<div class="tab" id="t-admin" onclick="go('admin')">Admin</div>
+<button class="tab active" onclick="go('home')">Home</button>
+<button class="tab" onclick="go('weeks')">Weeks (52)</button>
+<button class="tab" onclick="go('tt')">Timetable</button>
+<button class="tab" onclick="go('verses')">Verses</button>
+<button class="tab" onclick="go('admin')">Admin</button>
 </div>
 
-<div id="v-home">
-<div class="card"><h3 id="twTitle">📅 This Week - Week 1</h3><div id="twContent"></div></div>
-<div class="card"><h3>🎥 Featured Lesson</h3><div id="feat"></div></div>
-</div>
-
+<div id="v-home"><div class="card"><h3 id="tw">📅 This Week - Week 1</h3><div id="twC"></div></div><div class="card"><h3>🎥 Featured</h3><div id="feat"></div></div></div>
 <div id="v-weeks" class="hidden"><div class="card"><input id="sq" placeholder="Search week..." oninput="drawW()"><div id="wList"></div></div></div>
-<div id="v-tt" class="hidden"><div class="card"><h3>🗓️ Timetable - Bulk Paste Allowed</h3><textarea id="ttBulk" placeholder="Paste whole timetable:
-Monday 6PM-7:30PM Fellowship
-Wednesday 6PM-7PM Bible Study"></textarea><button class="btn" onclick="bulkTT()">Import Bulk</button><div id="ttView" style="margin-top:10px"></div></div></div>
+<div id="v-tt" class="hidden"><div class="card"><h3>🗓️ Timetable - Paste Your Existing Timetable Here!</h3><textarea id="ttBulk" placeholder="Paste all at once:
+Monday 6PM-7:30PM Fellowship & Worship
+Wednesday 6PM-7PM Bible Study
+Saturday 9AM-12PM Outreach"></textarea><button class="btn" onclick="bulkTT()">📥 Import Bulk Paste</button><div id="ttV" style="margin-top:10px"></div></div></div>
 <div id="v-verses" class="hidden"><div class="card"><h3>📖 Verses</h3><div id="vList"></div></div></div>
-<div id="v-admin" class="hidden">
-<div class="card"><h3>🔐 Admin PIN 2556</h3><input id="pin" type="password" placeholder="PIN"><button class="btn" onclick="unlock()">Unlock</button>
+<div id="v-admin" class="hidden"><div class="card">
+<h3>🔐 Admin PIN 2556</h3><input id="pin" type="password"><button class="btn" onclick="unlock()">Unlock</button>
 <div id="off" class="hidden">
-<p style="font-size:11px;color:#aaa;margin:10px 0">💬 WhatsApp Group - Paste invite link:</p><input id="waL" placeholder="https://chat.whatsapp.com/..."><input id="waN" placeholder="Group Name"><button class="btn" onclick="saveWA()" style="background:#25D366">Save WhatsApp Group</button>
-<h4 style="margin-top:14px">✏️ Welcome - Paste Notes</h4><textarea id="eW"></textarea><button class="btn" onclick="saveW()">Save Welcome</button>
-<h4 style="margin-top:14px">➕ Week - Paste Allowed</h4><input id="wn" type="number" placeholder="Week No 1-52"><input id="wt" placeholder="Title - paste"><textarea id="wNo" placeholder="Notes - paste your existing notes"></textarea><input id="wv" placeholder="Verse Ref"><input id="wvt" placeholder="Verse Text"><button class="btn" onclick="saveWeek()">Save Week</button>
-<h4 style="margin-top:14px">🎥 Lesson - Gallery OR Link + Paste Notes</h4><select id="lW"></select><input id="lT" placeholder="Title"><input type="file" id="lF" accept="video/*"><video id="prev" class="v hidden" controls></video><input id="lV" placeholder="YouTube / Drive Link"><textarea id="lN" placeholder="Lesson Notes - paste"></textarea><input id="lD" placeholder="Duration"><button class="btn" onclick="saveL()">Add Lesson</button>
-<h4 style="margin-top:14px">📤 Share</h4><button class="btn" onclick="gen()" style="background:#22c55e">GENERATE LINK FOR INTERNS</button><textarea id="sL" readonly placeholder="Link appears here..."></textarea><button class="btn" onclick="copyL()">Copy</button><button class="btn" onclick="postWA()" style="background:#25D366">💬 POST TO WHATSAPP GROUP</button>
+<input id="waL" placeholder="WhatsApp Group Link https://chat.whatsapp.com/..."><input id="waN" placeholder="Group Name"><button class="btn" onclick="saveWA()" style="background:#25D366">💾 Save WhatsApp Group</button>
+<h4 style="margin-top:12px">Welcome - Paste Notes</h4><textarea id="eW"></textarea><button class="btn" onclick="saveW()">Save Welcome</button>
+<h4 style="margin-top:12px">Add Week - Paste Your Notes!</h4><input id="wn" type="number" placeholder="Week No"><input id="wt" placeholder="Title - paste here"><textarea id="wNo" placeholder="Paste existing notes here..."></textarea><button class="btn" onclick="saveWeek()">Save Week</button>
+<h4 style="margin-top:12px">Add Lesson - Gallery + Link + Paste</h4><select id="lW"></select><input id="lT" placeholder="Title"><input type="file" id="lF" accept="video/*"><video id="pr" class="hidden" controls style="width:100%;border-radius:12px;margin:6px 0"></video><input id="lV" placeholder="YouTube / Drive link"><textarea id="lN" placeholder="Lesson notes - paste"></textarea><button class="btn" onclick="saveL()">Add Lesson</button>
+<h4 style="margin-top:12px">📤 Share to WhatsApp Group</h4><button class="btn" style="background:#22c55e" onclick="gen()">Generate Link</button><textarea id="sL" readonly></textarea><button class="btn" onclick="copyL()">Copy Link</button><button class="btn" style="background:#25D366" onclick="postWA()">💬 Post to WhatsApp Group</button>
+<p style="font-size:11px;margin-top:8px;color:#888">If link too big due to gallery videos, use YouTube Unlisted links for big videos.</p>
+<button class="btn" onclick="clearAll()" style="background:#ef4444;margin-top:12px">Clear Cache / Reset</button>
 </div></div></div>
 
 <script>
-let pend=null,pendN='';
-document.getElementById('lF').addEventListener('change',e=>{
+// Clear if?clear=1
+if(location.search.includes('clear')){ localStorage.clear(); alert('Cache cleared!'); location.href=location.origin+location.pathname; }
+
+let pend=null;
+let fileInput=document.getElementById('lF');
+if(fileInput){ fileInput.addEventListener('change',e=>{
  let f=e.target.files[0]; if(!f) return;
- if(f.size>12*1024*1024){alert('Max 12MB, use YouTube link for big'); e.target.value=''; return;}
- let r=new FileReader(); r.onload=ev=>{pend=ev.target.result; pendN=f.name; let v=document.getElementById('prev'); v.src=pend; v.classList.remove('hidden');}; r.readAsDataURL(f);
-});
-function yt(u){
- if(!u) return '';
- if(u.includes('youtu.be/')){let id=u.split('youtu.be/')[1].split(/[?&]/)[0]; return `<div class="videoWrap"><iframe src="https://www.youtube.com/embed/${id}" allowfullscreen></iframe></div>`;}
- if(u.includes('youtube.com/watch')){try{let uu=new URL(u); let id=uu.searchParams.get('v'); if(id) return `<div class="videoWrap"><iframe src="https://www.youtube.com/embed/${id}" allowfullscreen></iframe></div>`;}catch(e){}}
- if(u.includes('drive.google.com')) return `<div class="videoWrap"><iframe src="${u.replace('/view','/preview')}" allowfullscreen></iframe></div>`;
- if(u.startsWith('data:video')) return `<video controls class="v" src="${u}"></video>`;
- return `<a href="${u}" target="_blank" style="color:#f59e0b">📎 Open Video</a>`;
-}
-function rv(ls){ if(ls.d) return `<video controls class="v" src="${ls.d}"></video>`; if(ls.v) return yt(ls.v); return '<small>No video</small>'; }
-let D=JSON.parse(localStorage.getItem('nuru_v5')||'null')||{welcome:"Karibu! Welcome to Nuru Yake Internship - 1 Year journey of purpose, skills & faith. New content every week!",weeks:[{n:1,t:"Foundation of Faith",no:"Week 1: Nuru vision - Isaiah 60:1 Arise Shine!",v:"Isaiah 60:1",vt:"Arise, shine, for your light has come!",ls:[]}],tt:[{d:"Monday",ti:"6PM-7:30PM",a:"Fellowship"},{d:"Wednesday",ti:"6PM-7PM",a:"Bible Study"}],verses:[{r:"Isaiah 60:1",x:"Arise, shine"},{r:"Jeremiah 29:11",x:"Plans I have for you"}],cur:1,wa:{l:"",n:""}};
-try{ if(location.hash.includes('DATA=')){ let p=location.hash.split('DATA=')[1]; let j=JSON.parse(atob(decodeURIComponent(p))); if(j.weeks){ D=j; localStorage.setItem('nuru_v5',JSON.stringify(D)); alert('✅ Update loaded!'); history.replaceState(null,'',location.pathname); } } }catch(e){}
-function save(){ localStorage.setItem('nuru_v5',JSON.stringify(D)); render(); }
+ if(f.size>12*1024*1024){ alert('Max 12MB, use YouTube link'); e.target.value=''; return; }
+ let r=new FileReader(); r.onload=ev=>{ pend=ev.target.result; let v=document.getElementById('pr'); v.src=pend; v.classList.remove('hidden'); }; r.readAsDataURL(f);
+});}
+
 function go(id){
- ['home','weeks','tt','verses','admin'].forEach(x=>{
-  document.getElementById('v-'+x).classList.add('hidden');
-  document.getElementById('t-'+x).classList.remove('active');
- });
+ document.querySelectorAll('[id^="v-"]').forEach(el=>el.classList.add('hidden'));
+ document.querySelectorAll('.tab').forEach(el=>el.classList.remove('active'));
  document.getElementById('v-'+id).classList.remove('hidden');
- document.getElementById('t-'+id).classList.add('active');
+ event.target.classList.add('active');
+ window.scrollTo(0,0);
 }
+
+let D; try{ D=JSON.parse(localStorage.getItem('nuru_final')||'null'); }catch(e){ D=null; }
+if(!D){ D={welcome:"Karibu! Welcome to Nuru Yake Internship - 1 Year journey of purpose, skills & faith. New content every week! Paste your notes in Admin.",weeks:[{n:1,t:"Foundation",no:"Week 1: Arise and Shine - Isaiah 60:1",ls:[]}],tt:[{d:"Monday",ti:"6PM-7:30PM",a:"Fellowship"}],verses:[{r:"Isaiah 60:1",x:"Arise shine"}],cur:1,wa:{l:"",n:""}}; }
+
+try{ if(location.hash.includes('DATA=')){ let p=location.hash.split('DATA=')[1]; let obj=JSON.parse(atob(decodeURIComponent(p))); if(obj.weeks){ D=obj; localStorage.setItem('nuru_final',JSON.stringify(D)); alert('✅ Update loaded!'); history.replaceState(null,'',location.pathname); } } }catch(e){}
+
+function save(){ localStorage.setItem('nuru_final',JSON.stringify(D)); render(); }
 function render(){
  document.getElementById('wq').innerText=D.welcome;
  document.getElementById('wb').innerText='Week '+D.cur;
- document.getElementById('pb').innerText=D.weeks.length+'/52 weeks';
- document.getElementById('st').innerText=D.wa.l?'✅ WhatsApp Connected: '+D.wa.n:'✅ Ready - Buttons Working';
+ document.getElementById('pb').innerText=D.weeks.length+'/52';
+ document.getElementById('st').innerText=D.wa.l?'✅ WhatsApp: '+D.wa.n+' - Buttons Working':'✅ Buttons Working - Set WhatsApp in Admin';
  let cw=D.weeks.find(w=>w.n==D.cur)||D.weeks[0];
  if(cw){
-  document.getElementById('twTitle').innerText='📅 This Week - Week '+cw.n+': '+cw.t;
-  let h=`<div style="background:#1a1a2e;padding:10px;border-radius:10px;margin:6px 0"><b>${cw.v}</b><br><i>"${cw.vt}"</i></div><p>${cw.no}</p>`;
-  if(cw.ls&&cw.ls.length){ h+=`<h4 style="color:#fbbf24;margin:8px 0">${cw.ls.length} Lessons</h4>`; cw.ls.forEach(l=>{ h+=`<div style="background:#162040;padding:10px;border-radius:10px;margin:6px 0"><b>${l.t}</b><div>${rv(l)}</div><p style="font-size:12px">${l.no||''}</p></div>`; }); }
-  document.getElementById('twContent').innerHTML=h;
-  document.getElementById('feat').innerHTML=cw.ls&&cw.ls[0]?rv(cw.ls[0]):'<small>No lesson</small>';
+  document.getElementById('tw').innerText='📅 This Week - Week '+cw.n+': '+cw.t;
+  let h=`<p>${cw.no}</p>`;
+  if(cw.ls&&cw.ls.length){ cw.ls.forEach(l=>{ let vid=l.d?`<video controls src="${l.d}" style="width:100%;border-radius:10px;margin:6px 0"></video>`: (l.v?`<a href="${l.v}" target="_blank" style="color:#f59e0b">📎 ${l.v}</a>`:''); h+=`<div style="background:#162040;padding:10px;border-radius:10px;margin:6px 0"><b>${l.t}</b><div>${vid}</div><p style="font-size:12px">${l.no||''}</p></div>`; }); }
+  document.getElementById('twC').innerHTML=h;
+  document.getElementById('feat').innerHTML=cw.ls&&cw.ls[0]? (cw.ls[0].d?`<video controls src="${cw.ls[0].d}" style="width:100%;border-radius:10px"></video>`:`<a href="${cw.ls[0].v}" target="_blank" style="color:#f59e0b">${cw.ls[0].v||'Video'}</a>`):'<small>No lesson yet</small>';
  }
- drawW(); drawTT(); drawV(); fillSel();
+ let wl=document.getElementById('wList'); if(wl){ wl.innerHTML=''; D.weeks.forEach(w=>{ wl.innerHTML+=`<div style="background:#0f1a33;padding:10px;border-radius:10px;margin:6px 0;border-left:4px solid #f59e0b"><b>Week ${w.n}: ${w.t}</b><p style="font-size:12px;color:#aaa">${w.no}</p></div>`; }); }
+ let tt=document.getElementById('ttV'); if(tt){ tt.innerHTML=''; D.tt.forEach(t=>{ tt.innerHTML+=`<div style="background:#0f1a33;padding:8px;border-radius:8px;margin:4px 0;font-size:12px">${t.d} ${t.ti} - ${t.a}</div>`; }); }
+ let vl=document.getElementById('vList'); if(vl){ vl.innerHTML=''; D.verses.forEach(v=>{ vl.innerHTML+=`<div style="background:#1a1a2e;padding:8px;border-radius:8px;margin:4px 0"><b>${v.r}</b><br><i>${v.x}</i></div>`; }); }
+ let sel=document.getElementById('lW'); if(sel){ sel.innerHTML=''; D.weeks.forEach(w=>{ sel.innerHTML+=`<option value="${w.n}">Week ${w.n}: ${w.t}</option>`; }); }
 }
-function drawW(){
- let q=(document.getElementById('sq').value||'').toLowerCase();
- let b=document.getElementById('wList'); b.innerHTML='';
- D.weeks.sort((a,b)=>a.n-b.n).filter(w=>(w.t+w.no).toLowerCase().includes(q)).forEach(w=>{
-  let h=`<div style="background:#0f1a33;padding:10px;border-radius:10px;margin:8px 0;border-left:4px solid #f59e0b"><b>Week ${w.n}: ${w.t}</b><br><small style="color:#fbbf24">${w.v}</small><p style="font-size:12px;color:#aaa">${w.no}</p>`;
-  if(w.ls) w.ls.forEach((l,i)=>{ h+=`<div style="background:#162040;padding:8px;border-radius:8px;margin:4px 0"><b>${i+1}. ${l.t}</b><div>${rv(l)}</div></div>`; });
-  h+=`</div>`; b.innerHTML+=h;
- });
-}
-function drawTT(){
- let b=document.getElementById('ttView'); b.innerHTML='';
- ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"].forEach(day=>{
-  let items=D.tt.filter(t=>t.d===day);
-  if(items.length){ b.innerHTML+=`<h4 style="color:#fbbf24;margin:8px 0 4px">${day}</h4>`; items.forEach(t=>{ b.innerHTML+=`<div style="display:flex;gap:6px;margin:4px 0"><span style="background:#0f1a33;padding:6px;border-radius:6px;width:100px;font-size:11px">${t.ti}</span><span style="background:#0f1a33;padding:6px;border-radius:6px;flex:1;font-size:11px">${t.a} <button onclick="delTT('${t.d}','${t.ti}')" style="float:right;background:#ef4444;border:none;color:#fff;padding:2px 6px;border-radius:4px">X</button></span></div>`; }); }
- });
-}
-function drawV(){ let b=document.getElementById('vList'); b.innerHTML=''; D.verses.forEach(v=>{ b.innerHTML+=`<div style="background:#1a1a2e;padding:10px;border-radius:10px;margin:6px 0"><b>${v.r}</b><br><i>"${v.x}"</i></div>`; }); }
-function fillSel(){ let s=document.getElementById('lW'); s.innerHTML=''; D.weeks.forEach(w=>{ s.innerHTML+=`<option value="${w.n}">Week ${w.n}: ${w.t}</option>`; }); }
-function unlock(){ if(document.getElementById('pin').value!=='2556'){alert('Wrong PIN'); return;} document.getElementById('off').classList.remove('hidden'); document.getElementById('eW').value=D.welcome; if(D.wa){ document.getElementById('waL').value=D.wa.l; document.getElementById('waN').value=D.wa.n; } fillSel(); }
-function saveWA(){ let l=document.getElementById('waL').value.trim(); let n=document.getElementById('waN').value.trim()||'Nuru Interns'; if(!l.includes('chat.whatsapp.com')){alert('Paste valid WhatsApp group link'); return;} D.wa={l,n}; save(); alert('WhatsApp Connected!'); }
-function saveW(){ D.welcome=document.getElementById('eW').value; save(); alert('Welcome saved - now Generate Link!'); }
-function saveWeek(){ let n=parseInt(document.getElementById('wn').value); let t=document.getElementById('wt').value.trim(); if(!n||!t){alert('Week number & title'); return;} let no=document.getElementById('wNo').value; let v=document.getElementById('wv').value||'Isaiah 60:1'; let vt=document.getElementById('wvt').value||''; let idx=D.weeks.findIndex(w=>w.n===n); let o={n,t,no,v,vt,ls:idx>=0?D.weeks[idx].ls:[]}; if(idx>=0) D.weeks[idx]=o; else D.weeks.push(o); if(n>D.cur) D.cur=n; document.getElementById('wn').value=''; document.getElementById('wt').value=''; document.getElementById('wNo').value=''; save(); alert('Week '+n+' saved - you pasted successfully!'); }
-function saveL(){ let wn=parseInt(document.getElementById('lW').value); let t=document.getElementById('lT').value.trim(); if(!t){alert('Title'); return;} let w=D.weeks.find(x=>x.n===wn); if(!w) return; if(!w.ls) w.ls=[]; let o={t,v:document.getElementById('lV').value.trim(),no:document.getElementById('lN').value,d:document.getElementById('lD').value,}; if(pend){ o.d=pend; o.nm=pendN; o.v=''; }else{ o.d=''; } w.ls.push({t:o.t,v:o.v,no:o.no,d:o.d||o.d,nm:o.nm}); // fix
-  // corrected object
-  let final={t:o.t,v:o.v,no:o.no,dd:o.d,d:o.d}; if(pend){ final.d=pend; final.nm=pendN; final.v=''; }
-  w.ls[w.ls.length-1]=final;
-  pend=null; document.getElementById('lT').value=''; document.getElementById('lV').value=''; document.getElementById('lN').value=''; document.getElementById('lF').value=''; document.getElementById('prev').classList.add('hidden'); save(); alert('Lesson added to Week '+wn+' - pasted!'); }
-function bulkTT(){ let bulk=document.getElementById('ttBulk').value.trim(); if(!bulk){alert('Paste timetable'); return;} bulk.split('\n').forEach(line=>{ if(!line.trim()) return; let m=line.match(/^(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\s+(.+?)\s+(.+)$/i); if(m) D.tt.push({d:m[1],ti:m[2],a:m[3]}); }); document.getElementById('ttBulk').value=''; save(); alert('Timetable bulk pasted!'); }
-function delTT(d,ti){ D.tt=D.tt.filter(t=>!(t.d===d&&t.ti===ti)); save(); }
-function gen(){ try{ let j=JSON.stringify(D); if(j.length>3500000){alert('Too big due to gallery videos, use YouTube links'); return '';} let b=btoa(j); let link=location.origin+location.pathname+'#DATA='+encodeURIComponent(b); document.getElementById('sL').value=link; return link; }catch(e){alert('Too much data'); return '';}
+function unlock(){ if(document.getElementById('pin').value!=='2556'){alert('Wrong PIN'); return;} document.getElementById('off').classList.remove('hidden'); document.getElementById('eW').value=D.welcome; }
+function saveWA(){ let l=document.getElementById('waL').value.trim(); let n=document.getElementById('waN').value.trim()||'Nuru Interns'; if(l&&!l.includes('chat.whatsapp.com')){alert('Paste valid link'); return;} D.wa={l,n}; save(); alert('WhatsApp saved!'); }
+function saveW(){ D.welcome=document.getElementById('eW').value; save(); alert('Saved! Generate link'); }
+function saveWeek(){ let n=parseInt(document.getElementById('wn').value); let t=document.getElementById('wt').value.trim(); if(!n||!t){alert('Week no & title'); return;} let no=document.getElementById('wNo').value; let idx=D.weeks.findIndex(w=>w.n===n); let o={n,t,no,ls:idx>=0?D.weeks[idx].ls:[]}; if(idx>=0) D.weeks[idx]=o; else D.weeks.push(o); if(n>D.cur) D.cur=n; document.getElementById('wn').value=''; document.getElementById('wt').value=''; document.getElementById('wNo').value=''; save(); alert('Week saved! Paste worked!'); }
+function saveL(){ let wn=parseInt(document.getElementById('lW').value); let t=document.getElementById('lT').value.trim(); if(!t){alert('Title'); return;} let w=D.weeks.find(x=>x.n===wn); if(!w) return; if(!w.ls) w.ls=[]; w.ls.push({t,v:document.getElementById('lV').value.trim(),no:document.getElementById('lN').value,d:pend||''}); pend=null; document.getElementById('lT').value=''; document.getElementById('lV').value=''; document.getElementById('lN').value=''; document.getElementById('lF').value=''; document.getElementById('pr').classList.add('hidden'); save(); alert('Lesson added!'); }
+function bulkTT(){ let b=document.getElementById('ttBulk').value.trim(); if(!b){alert('Paste timetable first'); return;} b.split('\n').forEach(line=>{ if(!line.trim()) return; let m=line.match(/^(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\s+(.+?)\s+(.+)$/i); if(m) D.tt.push({d:m[1],ti:m[2],a:m[3]}); else { let parts=line.split(' '); if(['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'].includes(parts[0])) D.tt.push({d:parts[0],ti:parts[1]||'',a:parts.slice(2).join(' ')||line}); } }); document.getElementById('ttBulk').value=''; save(); alert('Bulk pasted!'); }
+function gen(){ try{ let j=JSON.stringify(D); if(j.length>3500000){alert('Too big due to gallery videos, use YouTube'); return '';} let b=btoa(j); let link=location.origin+location.pathname+'#DATA='+encodeURIComponent(b); document.getElementById('sL').value=link; return link; }catch(e){alert('Too big'); return '';} }
+function copyL(){ let el=document.getElementById('sL'); if(!el.value) gen(); el.select(); document.execCommand('copy'); alert('Copied!'); }
+function postWA(){ let l=gen(); if(!l) return; if(!D.wa.l){alert('Save WhatsApp group first'); go('admin'); return;} let msg=`🌟 NURU YAKE INTERNSHIP Week ${D.cur}\n\nTap to update:\n${l}\n\nBlessings`; window.open(D.wa.l,'_blank'); setTimeout(()=>{ location.href='https://wa.me/?text='+encodeURIComponent(msg); },800); }
+function clearAll(){ if(confirm('Clear cache?')){ localStorage.removeItem('nuru_final'); location.reload(); } }
+render();
+</script></body></html>
